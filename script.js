@@ -91,6 +91,7 @@ function renderPlaces(places) {
             entity = document.querySelector('[gps-entity-place]');
             entity.setAttribute('position', model.position);
             setModel(model, entity);
+            scene.appendChild(model);
         });
 
         scene.appendChild(model);
