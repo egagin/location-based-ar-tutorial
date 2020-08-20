@@ -89,6 +89,7 @@ function renderPlaces(places) {
             longitude = document.getElementById('lng_id').value;
             model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
             entity = document.querySelector('[gps-entity-place]');
+            entity.setAttribute('position', model.position);
             setModel(model, entity);
         });
 
