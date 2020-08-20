@@ -85,16 +85,3 @@ function renderPlaces(places) {
     });
 }
 
-document.querySelector('button[data-action="move"]').addEventListener('click', function () {
-    places.forEach((place) => {
-        latitude = document.getElementById('lat_id').value;
-        longitude = document.getElementById('lng_id').value;
-        model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-        setModel(models[modelIndex], model);
-
-        model.setAttribute('animation-mixer', '');
-        scene.appendChild(model);
-    });        
-}
-
-
