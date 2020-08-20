@@ -66,7 +66,7 @@ function renderPlaces(places) {
     places.forEach((place) => {
         var latitude = place.location.lat;
         var longitude = place.location.lng;
-        
+
         var model = document.createElement('a-entity');
         model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
 
@@ -86,13 +86,10 @@ function renderPlaces(places) {
 }
 
 document.querySelector('button[data-action="move"]').addEventListener('click', function () {
-    model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
     places.forEach((place) => {
         latitude = document.getElementById('lat_id').value;
         longitude = document.getElementById('lng_id').value;
-        
         model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-
         setModel(models[modelIndex], model);
 
         model.setAttribute('animation-mixer', '');
