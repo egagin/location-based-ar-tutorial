@@ -88,6 +88,8 @@ function renderPlaces(places) {
             latitude = document.getElementById('lat_id').value;
             longitude = document.getElementById('lng_id').value;
             model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
+            entity = document.querySelector('[gps-entity-place]');
+            setModel(model, entity);
         });
 
         scene.appendChild(model);
