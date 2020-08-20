@@ -85,10 +85,9 @@ function renderPlaces(places) {
         });
         
         document.querySelector('button[data-action="move"]').addEventListener('click', function () {
-            entity = document.querySelector('[gps-entity-place]');
-            modelIndex++;
-            newIndex = modelIndex % models.length;
-            setModel(models[newIndex], entity);
+            latitude = document.getElementById('lat_id').value;
+            longitude = document.getElementById('lng_id').value;
+            model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
         });
 
         scene.appendChild(model);
