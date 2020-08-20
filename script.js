@@ -11,8 +11,8 @@ function staticLoadPlaces() {
         {
             name: 'Pokèmon',
             location: {
-                lat: 37.319010,
-                lng: -121.944110,
+                // lat: <your-latitude>,
+                // lng: <your-longitude>,
             },
         },
     ];
@@ -40,7 +40,6 @@ var models = [
 ];
 
 var modelIndex = 0;
-
 var setModel = function (model, entity) {
     if (model.scale) {
         entity.setAttribute('scale', model.scale);
@@ -84,4 +83,3 @@ function renderPlaces(places) {
         scene.appendChild(model);
     });
 }
-
