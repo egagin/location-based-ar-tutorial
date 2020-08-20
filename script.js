@@ -89,13 +89,15 @@ function renderPlaces(places) {
             longitude = document.getElementById('lng_id').value;
             var new_model = document.createElement('a-entity');
             new_model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-            
+            new_model.setAttribute('info', latitude);
             new_model.setAttribute('animation-mixer', '');
-            setModel(new_model, model);
             
             //entity = document.querySelector('[gps-entity-place]');
             setModel(new_model, entity);
-            scene.appendChild(new_model);
+            
+            
+            //setModel(new_model, entity);
+            //scene.appendChild(new_model);
         });
 
         scene.appendChild(model);
