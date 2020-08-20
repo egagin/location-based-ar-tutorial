@@ -90,8 +90,8 @@ function renderPlaces(places) {
             var new_model = document.createElement('a-entity');
             new_model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
             
-            setModel(models[modelIndex], new_model);
             new_model.setAttribute('animation-mixer', '');
+            setModel(new_model, model);
             
             //entity = document.querySelector('[gps-entity-place]');
             setModel(new_model, entity);
