@@ -64,10 +64,10 @@ function renderPlaces(places) {
     let scene = document.querySelector('a-scene');
 
     places.forEach((place) => {
-        let latitude = place.location.lat;
-        let longitude = place.location.lng;
+        var latitude = place.location.lat;
+        var longitude = place.location.lng;
 
-        let model = document.createElement('a-entity');
+        var model = document.createElement('a-entity');
         model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
 
         setModel(models[modelIndex], model);
@@ -75,11 +75,10 @@ function renderPlaces(places) {
         model.setAttribute('animation-mixer', '');
 
         document.querySelector('button[data-action="change"]').addEventListener('click', function () {
-            var new_lat = document.getElementById('lat_id').value;
-            var new_lng = document.getElementById('lng_id').value;
-            model.setAttribute('gps-entity-place', `latitude: ${new_lat}; longitude: ${new_lng};`);
-            div.innerText = model.position;
-            setModel(models[modelIndex], model);
+            latitude = document.getElementById('lat_id').value;
+            longitude = document.getElementById('lng_id').value;
+            model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
+            // div.innerText = model.position;
             var entity = document.querySelector('[gps-entity-place]');
             modelIndex++;
             var newIndex = modelIndex % models.length;
