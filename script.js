@@ -75,6 +75,9 @@ function renderPlaces(places) {
         model.setAttribute('animation-mixer', '');
 
         document.querySelector('button[data-action="change"]').addEventListener('click', function () {
+            let new_lat = document.getElementById('lat_id').value
+            let new_lng = document.getElementById('lng_id').value
+            model.setAttribute('gps-entity-place', `latitude: new_lat; longitude: new_lng;`);
             var entity = document.querySelector('[gps-entity-place]');
             modelIndex++;
             var newIndex = modelIndex % models.length;
