@@ -74,12 +74,21 @@ function renderPlaces(places) {
         setModel(models[modelIndex], model);
 
         model.setAttribute('animation-mixer', '');
-
+        var entity = document.querySelector('[gps-entity-place]');
+        var newIndex = modelIndex % models.length;
+        
         document.querySelector('button[data-action="change"]').addEventListener('click', function () {
-            var entity = document.querySelector('[gps-entity-place]');
+            entity = document.querySelector('[gps-entity-place]');
             modelIndex++;
-            var newIndex = modelIndex % models.length;
+            newIndex = modelIndex % models.length;
             setModel(models[newIndex], entity);
+        });
+        
+        document.querySelector('button[data-action="move"]').addEventListener('click', function () {
+            // var entity = document.querySelector('[gps-entity-place]');
+            // modelIndex++;
+            // var newIndex = modelIndex % models.length;
+            // setModel(models[newIndex], entity);
         });
 
         scene.appendChild(model);
