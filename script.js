@@ -13,8 +13,8 @@ function staticLoadPlaces() {
         {
             name: 'Pokèmon',
             location: {
-                lat: 37.319010,
-                lng: -121.944110,
+                lat: 37.778700,
+                lng: -122.412630,
             },
         },
     ];
@@ -74,30 +74,20 @@ function renderPlaces(places) {
         setModel(models[modelIndex], model);
 
         model.setAttribute('animation-mixer', '');
-        var entity = document.querySelector('[gps-entity-place]');
-        var newIndex = modelIndex % models.length;
         
         document.querySelector('button[data-action="change"]').addEventListener('click', function () {
-            entity = document.querySelector('[gps-entity-place]');
+            var entity = document.querySelector('[gps-entity-place]');
             modelIndex++;
-            newIndex = modelIndex % models.length;
+            var newIndex = modelIndex % models.length;
             setModel(models[newIndex], entity);
         });
         
         document.querySelector('button[data-action="move"]').addEventListener('click', function () {
             latitude = document.getElementById('lat_id').value;
             longitude = document.getElementById('lng_id').value;
-            var new_model = document.createElement('a-entity');
-            new_model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-            new_model.setAttribute('info', latitude);
-            new_model.setAttribute('animation-mixer', '');
-            
-            //entity = document.querySelector('[gps-entity-place]');
-            setModel(new_model, entity);
-            
-            
-            //setModel(new_model, entity);
-            //scene.appendChild(new_model);
+            var entity = document.querySelector('[gps-entity-place]');
+            entity.removeAttribute('gps-entity-place');
+            entity.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
         });
 
         scene.appendChild(model);
